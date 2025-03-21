@@ -1,18 +1,16 @@
-import { Button } from '@/components/ui/button'
 
 export const metadata = {
   title: 'Home',
   description: 'Home page of the e-commerce website ',
 }
 
-const Home = () => {
+const HomePage = async() => {
+
   return ( 
     <div>
-      <Button>
-        Button
-      </Button>
+       i-Store
     </div> 
   )
 }
  
-export default Home
+export default HomePage
