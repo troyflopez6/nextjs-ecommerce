@@ -14,7 +14,6 @@ const eslintConfig = [
       'no-unused-vars': ['error', { 'args': 'none' }],
       'prefer-const': 'error',
       'no-var': 'error',
-      'comma-dangle': ['error', 'always-multiline'],
       'no-console': 'warn',
       'object-curly-spacing': ['error', 'always'],
       indent: ['error', 2],
