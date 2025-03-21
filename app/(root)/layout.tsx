@@ -1,5 +1,5 @@
-import Footer from '@/components/footer'
-import Header from '@/components/shared/header'
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/shared/header'
 
 export default function RootLayout({
   children,
@@ -13,7 +13,7 @@ export default function RootLayout({
         ROOT
         {children}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

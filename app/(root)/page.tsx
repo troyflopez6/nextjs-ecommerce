@@ -4,7 +4,7 @@ export const metadata = {
   description: 'Home page of the e-commerce website ',
 }
 
-const HomePage = async() => {
+const HomePage = () => {
 
   return ( 
     <div>

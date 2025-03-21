@@ -1,14 +1,14 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown'
 import { MoonIcon, SunIcon, SunMoon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { JSX, useEffect, useState } from 'react'
 
 const ThemeModes = ['system', 'light', 'dark']
 
-const ThemeToggler = () => {
+export const ThemeToggler = () => {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState<boolean>(false)
 
@@ -60,5 +60,3 @@ const ThemeToggler = () => {
     </DropdownMenu>
   )
 }
- 
-export default ThemeToggler
