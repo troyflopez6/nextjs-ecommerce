@@ -1,3 +1,5 @@
+import ProductList from '@/components/shared/productList'
+import { PRODUCTS_MOCK } from '@/constants/mock/products'
 
 export const metadata = {
   title: 'Home',
@@ -5,10 +7,13 @@ export const metadata = {
 }
 
 const HomePage = () => {
-
   return ( 
     <div>
-       i-Store
+      <ProductList 
+        title='Best Sellers'
+        data={PRODUCTS_MOCK}
+        limit={4}
+      />
     </div> 
   )
 }

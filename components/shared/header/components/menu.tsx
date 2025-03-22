@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { EllipsisVertical, ShoppingCart, ShoppingCartIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
-import { ThemeToggler } from './themeToggler'
+import { ThemeToggler } from './ThemeToggler'
 
 export const Menu = () => {
   return ( 
@@ -44,6 +44,7 @@ export const Menu = () => {
             >
               <Link href={'/cart'}>
                 <ShoppingCartIcon />
+                {'Cart'}
               </Link>
             </Button>
             <Button
