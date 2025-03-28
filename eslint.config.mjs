@@ -27,6 +27,11 @@ const eslintConfig = [
       'no-shadow-restricted-names': 'error',
     },
   },
-  
+  {
+    files: ['db/seed.ts'],
+    rules: {
+      'no-console': 'off'
+    }
+  }
 ]
 export default eslintConfig

@@ -7,7 +7,7 @@ type TProductPriceProps = {
 }
 
 const ProductPrice: FC<TProductPriceProps> = ({ price, className }) => {
-  const stringValue = price.toFixed(2)
+  const stringValue = Number(price).toFixed(2)
   const [intValue, floatValue] = stringValue.split('.')
   return (
     <p

@@ -40,12 +40,12 @@ const ProductCard: FC<TProductCard> = ({ product }) => {
         </Link>
         <div className="flex-between gap-4">
           <p>
-            {product.rating} {'Stars'}
+            {String(product.rating)} {'Stars'}
           </p>
           {
             product.stock > 0 ? (
               <ProductPrice
-                price={Number(product.price)}
+                price={product.price}
               />
             ) : (
               <p className='text-destructive'>
