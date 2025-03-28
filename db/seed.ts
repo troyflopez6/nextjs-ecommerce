@@ -1,9 +1,9 @@
 import { PRODUCTS_MOCK } from '@/constants/mock/products'
 import { PrismaClient } from '@prisma/client'
 
+const prisma = new PrismaClient()
 const main = async () => {
     
-  const prisma = new PrismaClient()
   await prisma.product.deleteMany()
   await prisma.product.createMany({
     data:PRODUCTS_MOCK.products
@@ -13,3 +13,9 @@ const main = async () => {
 }
 
 main()
+  .then(async () => await prisma.$disconnect())
+  .catch(async (e) => {
+    console.error({ e })
+    await prisma.$disconnect()
+    process.exit(1)
+  })
