@@ -1,9 +1,10 @@
+import { TProduct } from '@/types/product'
 import { FC } from 'react'
 import ProductCard from './components/productCard'
 
 type TProductList = {
     title?: string
-    products: any
+    products: TProduct[]
 }
 
 const ProductList: FC<TProductList> = ({ title, products }) => {
