@@ -1,7 +1,6 @@
 'use server'
-
+import { prisma } from '@/db/prisma'
 import { TProduct } from '@/types/product'
-import { PrismaClient } from '@prisma/client'
 import { convertToPlainObject } from '../prisma/parsePrismaResponse'
 
 type TGetLatestProducts = {
@@ -10,7 +9,6 @@ type TGetLatestProducts = {
 
 // Get latest products
 export const getLatestProducts = async ({ numOfProducts = 4 } : TGetLatestProducts): Promise<TProduct[]> => {
-  const prisma = new PrismaClient()
 
   const products = await prisma.product.findMany({
     take: numOfProducts,
@@ -19,11 +17,13 @@ export const getLatestProducts = async ({ numOfProducts = 4 } : TGetLatestProduc
     }
   })
 
-  const updatedProducts = products.map((product) => ({
-    ...product,
-    price: String(product.price.toNumber()),
-    rating: product.rating.toNumber()
-  }))
+  return convertToPlainObject(products)
+}
 
-  return convertToPlainObject(updatedProducts)
+export const getProductBySlug = async ({ slug }: {slug: string}): Promise<TProduct | null> => {
+  return await prisma.product.findFirst({
+    where:{
+      slug,
+    }
+  })
 }

@@ -2,9 +2,9 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { EllipsisVertical, ShoppingCart, ShoppingCartIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
-import { ThemeToggler } from './ThemeToggler'
+import ThemeToggler from './ThemeToggler'
 
-export const Menu = () => {
+const Menu = () => {
   return ( 
     <div className='flex justify-end gap-3'>
       <nav className='hidden md:flex w-full max-w-xs gap-1'>
@@ -61,3 +61,5 @@ export const Menu = () => {
     </div>
   )
 }
+
+export default Menu

@@ -17,5 +17,6 @@ export const productSchema = z.object({
   images: z.array(z.string()).min(1, 'Product must have at least one image'),
   isFeatured: z.boolean(),
   banner: z.string().nullable().optional(),
-  price: currency
+  price: currency,
+  numReviews: z.coerce.number().default(0),
 })

@@ -4,6 +4,6 @@ import { z } from 'zod'
 export type TProduct = z.infer<typeof productSchema> & {
     id: string;
     name: string;
-    rating: number;
+    rating: string;
     createdAt: Date;
 }

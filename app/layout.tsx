@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SERVER_URL),
 }
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -37,3 +37,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

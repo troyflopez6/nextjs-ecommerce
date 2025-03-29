@@ -1,8 +1,9 @@
 import { cn } from '@/lib/utils/tailwindClass'
+import { TProduct } from '@/types/product'
 import { FC } from 'react'
 
 type TProductPriceProps = {
-  price: string
+  price: TProduct['price']
   className?: string
 }
 

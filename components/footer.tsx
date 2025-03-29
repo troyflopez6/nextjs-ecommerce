@@ -1,6 +1,7 @@
 import { APP_NAME } from '@/constants/appConfig'
+import { FC } from 'react'
 
-export const Footer = () => {
+const Footer: FC = () => {
   const currentYear = new Date().getFullYear()
   return ( 
     <footer className='border-t'>
@@ -11,3 +12,4 @@ export const Footer = () => {
   )
 }
  
+export default Footer
