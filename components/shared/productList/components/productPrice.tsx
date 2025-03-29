@@ -1,14 +1,13 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils/tailwindClass'
 import { FC } from 'react'
 
 type TProductPriceProps = {
-  price: number
+  price: string
   className?: string
 }
 
 const ProductPrice: FC<TProductPriceProps> = ({ price, className }) => {
-  const stringValue = Number(price).toFixed(2)
-  const [intValue, floatValue] = stringValue.split('.')
+  const [intValue, floatValue] = price.split('.')
   return (
     <p
       className={cn(

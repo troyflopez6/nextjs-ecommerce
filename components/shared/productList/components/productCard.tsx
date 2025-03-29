@@ -1,11 +1,12 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { TProduct } from '@/types/product'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import ProductPrice from './productPrice'
 
 type TProductCard = {
-    product: any
+    product: TProduct
 }
 
 const ProductCard: FC<TProductCard> = ({ product }) => {
