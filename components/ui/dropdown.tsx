@@ -3,25 +3,24 @@
 import { cn } from '@/lib/utils/tailwindClass'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react'
-import * as React from 'react'
-
-const DropdownMenu =({
+import { FC } from 'react'
+const DropdownMenu:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Root>> = ({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) =>{
+}) =>{
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
 }
 
-const DropdownMenuPortal =({
+const DropdownMenuPortal:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Portal>> = ({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
   )
 }
 
-const DropdownMenuTrigger = ({
+const DropdownMenuTrigger:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>> = ({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.Trigger
       data-slot="dropdown-menu-trigger"
@@ -30,11 +29,11 @@ const DropdownMenuTrigger = ({
   )
 }
 
-const DropdownMenuContent = ({
+const DropdownMenuContent:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Content>> = ({
   className,
   sideOffset = 4,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
@@ -50,22 +49,24 @@ const DropdownMenuContent = ({
   )
 }
 
-const DropdownMenuGroup = ({
+const DropdownMenuGroup:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Group>> = ({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) =>  {
+}) =>  {
   return (
     <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
   )
 }
 
-const DropdownMenuItem = ({
+const DropdownMenuItem:FC<
+  React.ComponentProps<typeof DropdownMenuPrimitive.Item> &
+  {
+  inset?: boolean
+  variant?: 'default' | 'destructive'
+}> = ({
   className,
   inset,
   variant = 'default',
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
-  inset?: boolean
-  variant?: 'default' | 'destructive'
 }) => {
   return (
     <DropdownMenuPrimitive.Item
@@ -81,12 +82,12 @@ const DropdownMenuItem = ({
   )
 }
 
-const DropdownMenuCheckboxItem = ({
+const DropdownMenuCheckboxItem:FC<React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>> = ({
   className,
   children,
   checked,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
@@ -107,9 +108,9 @@ const DropdownMenuCheckboxItem = ({
   )
 }
 
-const DropdownMenuRadioGroup = ({
+const DropdownMenuRadioGroup:FC<React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>> = ({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) =>  {
+}) =>  {
   return (
     <DropdownMenuPrimitive.RadioGroup
       data-slot="dropdown-menu-radio-group"
@@ -118,13 +119,15 @@ const DropdownMenuRadioGroup = ({
   )
 }
 
-const DropdownMenuRadioItem = ({
+const DropdownMenuRadioItem: FC<React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem> & { value: string }> = ({
   className,
   children,
+  value,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.RadioItem
+      value={value}
       data-slot="dropdown-menu-radio-item"
       className={cn(
         'focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4',
@@ -142,12 +145,12 @@ const DropdownMenuRadioItem = ({
   )
 }
 
-const DropdownMenuLabel = ({
+const DropdownMenuLabel: FC<React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
+  inset?: boolean
+}> = ({
   className,
   inset,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
-  inset?: boolean
 }) =>  {
   return (
     <DropdownMenuPrimitive.Label
@@ -162,10 +165,10 @@ const DropdownMenuLabel = ({
   )
 }
 
-const DropdownMenuSeparator = ({
+const DropdownMenuSeparator: FC<React.ComponentProps<typeof DropdownMenuPrimitive.Separator>> = ({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.Separator
       data-slot="dropdown-menu-separator"
@@ -175,10 +178,10 @@ const DropdownMenuSeparator = ({
   )
 }
 
-const DropdownMenuShortcut = ({
+const DropdownMenuShortcut :FC<React.ComponentProps<'span'>>= ({
   className,
   ...props
-}: React.ComponentProps<'span'>) => {
+}) => {
   return (
     <span
       data-slot="dropdown-menu-shortcut"
@@ -191,19 +194,19 @@ const DropdownMenuShortcut = ({
   )
 }
 
-const DropdownMenuSub = ({
+const DropdownMenuSub: FC<React.ComponentProps<typeof DropdownMenuPrimitive.Sub>> = ({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) => {
+}) => {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
 }
 
-const DropdownMenuSubTrigger = ({
+const DropdownMenuSubTrigger: FC<React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
+  inset?: boolean
+}> = ({
   className,
   inset,
   children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
-  inset?: boolean
 }) => {
   return (
     <DropdownMenuPrimitive.SubTrigger
@@ -221,10 +224,10 @@ const DropdownMenuSubTrigger = ({
   )
 }
 
-const DropdownMenuSubContent = ({
+const DropdownMenuSubContent: FC<React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>> = ({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => {
+}) => {
   return (
     <DropdownMenuPrimitive.SubContent
       data-slot="dropdown-menu-sub-content"

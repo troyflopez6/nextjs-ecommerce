@@ -1,13 +1,15 @@
-import { TProduct } from '@/types/product'
+import { LATEST_PRODUCTS_LIMIT } from '@/constants/appConfig'
+import { getLatestProducts } from '@/lib/actions/product.actions'
 import { FC } from 'react'
 import ProductCard from './components/productCard'
 
 type TProductList = {
     title?: string
-    products: TProduct[]
 }
 
-const ProductList: FC<TProductList> = ({ title, products }) => {
+const ProductList: FC<TProductList> = async ({ title }) => {
+  const products = await getLatestProducts({ numOfProducts: LATEST_PRODUCTS_LIMIT })
+  
   return ( 
     <div className='my-10'>
       <h2 className='h2-bold mb-4'>
@@ -39,5 +41,5 @@ const ProductList: FC<TProductList> = ({ title, products }) => {
     </div> 
   )
 }
- 
+
 export default ProductList

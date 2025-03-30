@@ -1,9 +1,9 @@
 import { APP_NAME } from '@/constants/appConfig'
+import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu } from './components/menu'
 
-export const Header = () => {
+const Header = () => {
   return ( 
     <header className='w-full border-b'>
       <div className="wrapper flex-between">
@@ -26,3 +26,5 @@ export const Header = () => {
     </header>
   )
 }
+
+export default Header

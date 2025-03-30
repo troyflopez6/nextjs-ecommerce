@@ -3,25 +3,26 @@ import { TProduct } from '@/types/product'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
-import ProductPrice from './productPrice'
+import ProductPrice from '../../product/components/productPrice'
 
 type TProductCard = {
     product: TProduct
 }
 
 const ProductCard: FC<TProductCard> = ({ product }) => {
+  const { brand, name, rating, price, slug, images, stock } = product
   return ( 
     <Card className='w-[300] md:w-full max-w-xs'>
       <CardHeader
         className='p-0 flex justify-center items-center'
       >
         <Link 
-          href={`/product/${product.slug}`}
+          href={`/product/${slug}`}
         >
           <Image
             className='rounded-t-xl'
-            src={product.images[0]} 
-            alt={product.name} 
+            src={ images[0]} 
+            alt={ name} 
             height={300} 
             width={300} 
             priority={true}
@@ -32,21 +33,21 @@ const ProductCard: FC<TProductCard> = ({ product }) => {
         className='p-4 grid gap-4'
       >
         <div className='text-xs'>
-          {product.brand}
+          {brand}
         </div>
-        <Link href={`/product/${product.slug}`}>
+        <Link href={`/product/${slug}`}>
           <h2 className='text-sm font-medium'>
-            {product.name}
+            {name}
           </h2>
         </Link>
         <div className="flex-between gap-4">
           <p>
-            {String(product.rating)} {'Stars'}
+            {rating} {'Stars'}
           </p>
           {
-            product.stock > 0 ? (
+            stock > 0 ? (
               <ProductPrice
-                price={product.price}
+                price={price}
               />
             ) : (
               <p className='text-destructive'>
@@ -59,5 +60,5 @@ const ProductCard: FC<TProductCard> = ({ product }) => {
     </Card>
   )
 }
- 
+
 export default ProductCard

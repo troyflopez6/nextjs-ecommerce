@@ -8,7 +8,7 @@ import { JSX, useEffect, useState } from 'react'
 
 const ThemeModes = ['system', 'light', 'dark']
 
-export const ThemeToggler = () => {
+const ThemeToggler = () => {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState<boolean>(false)
 
@@ -60,3 +60,5 @@ export const ThemeToggler = () => {
     </DropdownMenu>
   )
 }
+
+export default ThemeToggler
