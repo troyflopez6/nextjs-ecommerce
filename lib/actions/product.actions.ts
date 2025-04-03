@@ -1,5 +1,5 @@
 'use server'
-import { prisma } from '@/db/prisma'
+import { extendedPrisma } from '@/db/prisma'
 import { TProduct } from '@/types/product'
 import { convertToPlainObject } from '../prisma/parsePrismaResponse'
 
@@ -10,7 +10,7 @@ type TGetLatestProducts = {
 // Get latest products
 export const getLatestProducts = async ({ numOfProducts = 4 } : TGetLatestProducts): Promise<TProduct[]> => {
 
-  const products = await prisma.product.findMany({
+  const products = await extendedPrisma.product.findMany({
     take: numOfProducts,
     orderBy: {
       createdAt: 'desc'
@@ -21,7 +21,7 @@ export const getLatestProducts = async ({ numOfProducts = 4 } : TGetLatestProduc
 }
 
 export const getProductBySlug = async ({ slug }: {slug: string}): Promise<TProduct | null> => {
-  return await prisma.product.findFirst({
+  return await extendedPrisma.product.findFirst({
     where:{
       slug,
     }
