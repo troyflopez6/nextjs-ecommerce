@@ -1,4 +1,4 @@
-import { productSchema } from '@/lib/validators/zodValidator'
+import { productSchema } from '@/lib/validators/zodProduct'
 import { z } from 'zod'
 
 export type TProduct = z.infer<typeof productSchema> & {
