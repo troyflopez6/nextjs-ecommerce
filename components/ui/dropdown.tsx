@@ -3,14 +3,15 @@
 import { cn } from '@/lib/utils/tailwindClass'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react'
-import { FC } from 'react'
-const DropdownMenu:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Root>> = ({
+import { ComponentProps, FC } from 'react'
+
+const DropdownMenu:FC<ComponentProps<typeof DropdownMenuPrimitive.Root>> = ({
   ...props
 }) =>{
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
 }
 
-const DropdownMenuPortal:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Portal>> = ({
+const DropdownMenuPortal:FC<ComponentProps<typeof DropdownMenuPrimitive.Portal>> = ({
   ...props
 }) => {
   return (
@@ -18,7 +19,7 @@ const DropdownMenuPortal:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Po
   )
 }
 
-const DropdownMenuTrigger:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>> = ({
+const DropdownMenuTrigger:FC<ComponentProps<typeof DropdownMenuPrimitive.Trigger>> = ({
   ...props
 }) => {
   return (
@@ -29,7 +30,7 @@ const DropdownMenuTrigger:FC<React.ComponentProps<typeof DropdownMenuPrimitive.T
   )
 }
 
-const DropdownMenuContent:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Content>> = ({
+const DropdownMenuContent:FC<ComponentProps<typeof DropdownMenuPrimitive.Content>> = ({
   className,
   sideOffset = 4,
   ...props
@@ -49,7 +50,7 @@ const DropdownMenuContent:FC<React.ComponentProps<typeof DropdownMenuPrimitive.C
   )
 }
 
-const DropdownMenuGroup:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Group>> = ({
+const DropdownMenuGroup:FC<ComponentProps<typeof DropdownMenuPrimitive.Group>> = ({
   ...props
 }) =>  {
   return (
@@ -58,7 +59,7 @@ const DropdownMenuGroup:FC<React.ComponentProps<typeof DropdownMenuPrimitive.Gro
 }
 
 const DropdownMenuItem:FC<
-  React.ComponentProps<typeof DropdownMenuPrimitive.Item> &
+  ComponentProps<typeof DropdownMenuPrimitive.Item> &
   {
   inset?: boolean
   variant?: 'default' | 'destructive'
@@ -82,7 +83,7 @@ const DropdownMenuItem:FC<
   )
 }
 
-const DropdownMenuCheckboxItem:FC<React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>> = ({
+const DropdownMenuCheckboxItem:FC<ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>> = ({
   className,
   children,
   checked,
@@ -108,7 +109,7 @@ const DropdownMenuCheckboxItem:FC<React.ComponentProps<typeof DropdownMenuPrimit
   )
 }
 
-const DropdownMenuRadioGroup:FC<React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>> = ({
+const DropdownMenuRadioGroup:FC<ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>> = ({
   ...props
 }) =>  {
   return (
@@ -119,7 +120,7 @@ const DropdownMenuRadioGroup:FC<React.ComponentProps<typeof DropdownMenuPrimitiv
   )
 }
 
-const DropdownMenuRadioItem: FC<React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem> & { value: string }> = ({
+const DropdownMenuRadioItem: FC<ComponentProps<typeof DropdownMenuPrimitive.RadioItem> & { value: string }> = ({
   className,
   children,
   value,
@@ -145,7 +146,7 @@ const DropdownMenuRadioItem: FC<React.ComponentProps<typeof DropdownMenuPrimitiv
   )
 }
 
-const DropdownMenuLabel: FC<React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
+const DropdownMenuLabel: FC<ComponentProps<typeof DropdownMenuPrimitive.Label> & {
   inset?: boolean
 }> = ({
   className,
@@ -165,7 +166,7 @@ const DropdownMenuLabel: FC<React.ComponentProps<typeof DropdownMenuPrimitive.La
   )
 }
 
-const DropdownMenuSeparator: FC<React.ComponentProps<typeof DropdownMenuPrimitive.Separator>> = ({
+const DropdownMenuSeparator: FC<ComponentProps<typeof DropdownMenuPrimitive.Separator>> = ({
   className,
   ...props
 }) => {
@@ -178,7 +179,7 @@ const DropdownMenuSeparator: FC<React.ComponentProps<typeof DropdownMenuPrimitiv
   )
 }
 
-const DropdownMenuShortcut :FC<React.ComponentProps<'span'>>= ({
+const DropdownMenuShortcut :FC<ComponentProps<'span'>>= ({
   className,
   ...props
 }) => {
@@ -194,13 +195,13 @@ const DropdownMenuShortcut :FC<React.ComponentProps<'span'>>= ({
   )
 }
 
-const DropdownMenuSub: FC<React.ComponentProps<typeof DropdownMenuPrimitive.Sub>> = ({
+const DropdownMenuSub: FC<ComponentProps<typeof DropdownMenuPrimitive.Sub>> = ({
   ...props
 }) => {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
 }
 
-const DropdownMenuSubTrigger: FC<React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
+const DropdownMenuSubTrigger: FC<ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
   inset?: boolean
 }> = ({
   className,
@@ -224,7 +225,7 @@ const DropdownMenuSubTrigger: FC<React.ComponentProps<typeof DropdownMenuPrimiti
   )
 }
 
-const DropdownMenuSubContent: FC<React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>> = ({
+const DropdownMenuSubContent: FC<ComponentProps<typeof DropdownMenuPrimitive.SubContent>> = ({
   className,
   ...props
 }) => {
