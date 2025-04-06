@@ -7,7 +7,7 @@ const Header = () => {
   return ( 
     <header className='w-full border-b'>
       <div className="wrapper flex-between">
-        <div className="flex-start">
+        <div>
           <Link href='/' className='flex-start'>
             <Image 
               src='/images/logo.svg'
