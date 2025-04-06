@@ -41,7 +41,7 @@ const ThemeToggler = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>
-          Appearance
+          {'Appearance'}
         </DropdownMenuLabel>
         <DropdownMenuSeparator/>
         {
