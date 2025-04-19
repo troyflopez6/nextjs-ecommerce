@@ -1,1 +1,1 @@
-export const guestOnlyRoutes = ['/sign-in']
+export const guestOnlyRoutes = ['/sign-in', '/sign-up']
