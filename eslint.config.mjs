@@ -32,6 +32,12 @@ const eslintConfig = [
     rules: {
       'no-console': 'off'
     }
+  },
+  {
+    files: ['/types/next-auth.d.ts'],
+    rules: {
+      'no-unused-vars': 'off'
+    }
   }
 ]
 export default eslintConfig
