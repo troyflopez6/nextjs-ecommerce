@@ -1,22 +1,25 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { signInDefaultValues } from '@/constants/signInDefaultValues'
+import { signInFormInputs } from '@/constants/signInFormInputs'
 import { signInWithCredentials } from '@/lib/actions/user.actions'
+import { TSignInFormInputs } from '@/types/signInFormInputs'
 import Link from 'next/link'
 import { FC, useActionState } from 'react'
+import InputWithLabel from '../components/inputWithLabel'
 
 type TSignInFormProps = {
   callbackUrl?: string | string[]
 }
 
 const SignInForm: FC<TSignInFormProps> = ({ callbackUrl }) => {
-  const { email, password } = signInDefaultValues
   const [data, action, isPending] = useActionState(signInWithCredentials, {
+    formValues: signInDefaultValues,
     success: false,
-    message:'',
+    message: '',
   })
+
+  const getInputValue = (id: TSignInFormInputs['id']): string | undefined  => data?.formValues?.[id] ?? signInDefaultValues?.[id] 
 
   return ( 
     <form action={action}>
@@ -24,36 +27,20 @@ const SignInForm: FC<TSignInFormProps> = ({ callbackUrl }) => {
         {callbackUrl &&
           <input type='hidden' name='callbackUrl' value={callbackUrl} />
         }
-        <div className='grid gap-2'>
-          <Label
-            htmlFor='email'
-          >
-            {'Email'}
-          </Label>
-          <Input
-            id='email'
-            name='email'
-            type='email'
-            required={true}
-            autoComplete='email'
-            defaultValue={email}
-          />
-        </div>
-        <div className='grid gap-2'>
-          <Label
-            htmlFor='password'
-          >
-            {'Password'}
-          </Label>
-          <Input
-            id='password'
-            name='password'
-            type='password'
-            required={true}
-            autoComplete='password'
-            defaultValue={password}
-          />
-        </div>
+        {
+          signInFormInputs.map(({ inputProps, label, labelProps, id, }, i) => (
+            <InputWithLabel
+              key={i}
+              inputProps={{
+                ...inputProps,
+                defaultValue: getInputValue(id)
+              }}
+              labelProps={labelProps}
+              label={label}
+              error={data?.errors?.[id]}
+            />
+          ))
+        }
         <div>
           <Button
             className='w-full'
